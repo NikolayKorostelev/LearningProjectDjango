@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    tl {
+      background-color: #FFF5EE; /* Цвет фона подзаголовка*/
+    }
+
+    body {
+      display: grid;
+      grid-template-columns: 1fr 5fr; /* Левая часть занимает 1/4, правая часть 3/4 ширины */
+      grid-template-areas: "menu content"; /* Определяем области сетки */
+      height: 10vh;
+      margin: 2;
+      text-align: left;
+      background-color: #FFF5EE; /* Цвет фона подзаголовка*/
+      border-top: 2px solid #000; /* Горизонтальная полоса разделения между меню и контентом */
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-around;
+      background-color: #FFF5EE; /* Цвет фона контента */
+      text-align: left;
+    }
+    
+    li {
+      flex: 1;
+      text-align: left;
+      padding: 10px;
+      background-color: #FFF5EE; /* Цвет фона подменю*/
+      
+    }
+    .menu {
+      grid-area: menu; /* Размещаем меню в заданной области сетки */
+      
+    }
+    .content {
+      grid-area: content; /* Размещаем контент в заданной области сетки */
+      background-color: #FFF5EE; /* Цвет фона контента */
+      padding: 20px;
+      color:#FFF5EE
+      border-top: 2px solid #000; /* Горизонтальная полоса разделения между меню и контентом */
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li> 
+      <h1>Это заголовок 1</h1>
+      <h2>Это заголовок 2</h2>
+      <h3>Это заголовок 3</h3>
+      <h4>Это заголовок 4</h4>
+      <h5>Это заголовок 5</h5>
+      <h6>Это заголовок 6</h6>
+    </li>
+  </ul>
+  <div class="menu">
+    <h2><tl>{{ title }}</tl></h2>
+  </div>
+  <div class="content">
+    <ul>
+      <a href="#">{{ menu | join:" | " }}</a>
+    </ul>
+  </div>
+</body>
+</html>

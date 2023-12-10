@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp1 import urls
+from TaskSorcerer import urls
 
 urlpatterns = [
-    path('core/myapp1/', include(urls)),
+    path('TS/', include(urls)),
 ]
