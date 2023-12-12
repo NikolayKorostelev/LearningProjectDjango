@@ -1,25 +1,100 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="styles.css"> <!-- Подключаем внешний файл стилей -->
+  <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet"> <!-- Подключаем шрифт -->
   <style>
+    body {
+      
+      color:#C0C0C0;
+      background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+      background-size: cover;
+      background-color: #000000	;
+    }
     form {
-      width: 300px; /* задаем ширину контейнера */
-      margin: 0 auto; /* делаем контейнер посередине */
-      background-color: lightblue; /* задаем цвет фона */
-      padding: 20px; /* добавляем отступ вокруг контейнера */
+      color:#C0C0C0;
+      width: 300px;
+      transform: scale(1.5);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 15px;
+      /*box-shadow: 5px 5px 5px #C0C0C0;*/
+      /*border: 2px solid #b8b8b8;*/
+      background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+      background-size: cover; /* Растягиваем изображение на всю форму */
     }
   </style>
+
+  <style>
+    /* Стили для размещения статичного текста внизу страницы */
+    footer {
+        position: absolute; /* Устанавливаем абсолютное позиционирование */
+        bottom: 0; /* Размещаем в самом нижнем положении */
+        width: 100%; /* Занимаем всю ширину страницы */
+        padding: 10px; /* Отступы */
+    }
+</style>
+
+<style>
+  /* Стили для кнопки "Отправить" */
+  .submit-button {
+    background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+
+    color: white; /* Цвет текста */
+    float: left;
+    padding: 1px 10px; /* Отступы вокруг текста */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Позволяет задать размеры и отступы */
+    font-size: 16px; /* Размер шрифта */
+    margin: -8px -2px; /* Внешние отступы */
+    cursor: pointer; /* Заменяем стандартный курсор указателя */
+    border-radius: 5px; /* Закругляем углы */
+    border: none; /* Убираем границу */
+  }
+
+  /* Стили для кнопки "Сбросить" */
+  .reset-button {
+    background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+
+    color: white; /* Цвет текста */
+    float: right;
+    padding: 1px 10px; /* Отступы вокруг текста */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Позволяет задать размеры и отступы */
+    font-size: 16px; /* Размер шрифта */
+    margin: -8px -2px; /* Внешние отступы */
+    cursor: pointer; /* Заменяем стандартный курсор указателя */
+    border-radius: 5px; /* Закругляем углы */
+    border: none;     /* Убираем границу */ 
+  }
+
+  .tabl {
+
+    float: center;
+
+  }
+</style>
+
 </head>
 <body>
+  <form action="http://127.0.0.1:8000/TS/main/#">
+    <div style="text-align: center;">
+      <label for="fname" class="tabl">Имя:</label><br> 
+      <input type="text" id="fname" name="fname" value=""><br>
+      <label for="lname">Фамилия:</label><br>
+      <input type="text" id="lname" name="lname" value=""><br><br>
+    </div>
+    <input type="submit" value="Отправить" class="submit-button" onclick="window.location.href='http://127.0.0.1:8000/TS/main/#'">
+    <input type="reset" value="Сбросить" class="reset-button">
+  </form>
 
-<form action="/action_page.php">
-  <label for="fname">Имя:</label><br>
-  <input type="text" id="fname" name="fname" value=""><br>
-  <label for="lname">Фамилия:</label><br>
-  <input type="text" id="lname" name="lname" value=""><br><br>
-  <input type="submit" value="Отправить">
-  <input type="reset">
-</form>
+  <footer>
+    <!-- Нижний статический текст -->
+    <p>Копирайт &copy; 2023. Название вашей компании.</p>
+</footer>
 
 </body>
 </html>
