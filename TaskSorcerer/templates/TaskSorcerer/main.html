@@ -1,5 +1,44 @@
 <!DOCTYPE html>
 <style>
+.menu-toggle {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    float: right; /* Правый отступ */
+    margin: 10px; /* Пространство между кнопкой и краем окна */
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    margin: 5px auto;
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    display: none;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.active {
+    display: block;
+  }
+</style>
+
+<style>
     /* Стили для горизонтальной верхней панели */
     header {
         padding: 10px; /* Отступы вокруг*/
@@ -25,115 +64,20 @@
     }
 </style>
 
-<style>
-    /* Стили для горизонтальной левой колонки */
-    aside {
-        float: left; /* Выравниваем колонку слева */
-        width: 12%; /* Ширина колонки */
-    }
-    
-    aside nav ul {
-        list-style-type: none; /* Убираем маркеры списка */
-        padding: 0;
-        margin: 0;
-    }
-    
-    aside nav li {
-        display: block; /* Отображаем пункты списка как блоки */
-        margin-bottom: 5px; /* Отступ между пунктами списка */
-    }
-    
-    aside nav a {
-        text-decoration: none; /* Убираем подчеркивание у ссылок */
-        color: #333; /* Цвет текста ссылок */
-    }
-</style>
-
-<style>
-    /* Стили для разделения контента */
-    main {
-        display: flex; /* Используем flexbox для размещения элементов в строку */
-    }
-    
-    
-    
-    section {
-        flex: 1; /* Растягиваем центральную секцию на всё доступное пространство */
-        padding: 0 20px; /* Отступы вокруг центральной секции для разделения от левой колонки */
-    }
-</style>
-
-<style>
-    /* Стили для горизонтальной полоски */
-    aside {
-        /* остальные стили */
-        border-right: 1px solid #ccc; /* Добавляем горизонтальную полоску справа от левой колонки */
-        padding-right: 10px; /* Создаем отступ справа от левой колонки */
-    }
-    
-    section {
-        /* остальные стили */
-        padding-left: 10px; /* Создаем отступ слева от контента */
-    }
-</style>
-
-<style>
-    /* Стили для горизонтальной полоски над нижним текстом */
-    footer {
-        border-top: 1px solid #ccc; /* Добавляем горизонтальную полоску над нижним текстом */
-        padding: 10px 0; /* Создаем отступы вокруг нижнего текста */
-    }
-</style>
-
-<style>
-    /* Стили для фона всей страницы */
-    body {
-        background: linear-gradient(to right, #EE82EE, #1E90FF); /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
-        background-size: cover;
-        background-position: center;
-      }
-</style>
-
-<style>
-    /* Стили для размещения статичного текста внизу страницы */
-    footer {
-        position: absolute; /* Устанавливаем абсолютное позиционирование */
-        bottom: 0; /* Размещаем в самом нижнем положении */
-        width: 100%; /* Занимаем всю ширину страницы */
-        padding: 10px; /* Отступы */
-    }
-</style>
-
-<style>
-    /* Стили для создания однородного пространства между шапкой, контентом и подвалом */
-    body {
-        margin: 0; /* Убираем внешние отступы у body */
-        padding: 0; /* Убираем внутренние отступы у body */
-    }
-    
-    header, footer {
-        background: linear-gradient(to right, #1E90FF,#EE82EE) ; /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
-        background-size: cover;
-        background-position: center;
-    }
-    
-    main {
-        padding: 20px; /* Внутренние отступы для контента */
-    }
-</style>
-
-
-
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название вашего сайта</title>
-    <style>
-        /* Стили здесь */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Меню</title>
 </head>
 <body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="menu">
     <header>
         <!-- Верхняя панель с разделами-ссылками -->
         <nav>
@@ -146,33 +90,88 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <aside>
-            <!-- Левая колонка с подразделами разделов -->
-            <nav>
-                <ul>
-                    <li><a href="#подраздел1">Подраздел 1</a></li>
-                    <li><a href="#подраздел2">Подраздел 2</a></li>
-                    <li><a href="#подраздел3">Подраздел 3</a></li>
-                    <!-- Добавьте другие подразделы по вашему усмотрению -->
-                </ul>
-            </nav>
-        </aside>
-        <section>
-            <!-- Центральная область с контентом -->
-            <h2 id="раздел1">Раздел 1</h2>
-            <p>Здесь будет контент для раздела 1.</p>
-            <h2 id="раздел2">Раздел 2</h2>
-            <p>Здесь будет контент для раздела 2.</p>
-            <h2 id="раздел3">Раздел 3</h2>
-            <p>Здесь будет контент для раздела 3.</p>
-            <!-- Добавьте другие разделы и их содержимое по вашему усмотрению -->
-        </section>
-    </main>
-    
-    <footer>
-        <!-- Нижний статический текст -->
-        <p>Копирайт &copy; 2023. Название вашей компании.</p>
-    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-toggle').classList.toggle('active');
+      document.querySelector('.menu').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<style>
+    /* Стили для контейнера меню */
+    .circle-menu-toggle {
+      width: 100%;
+      height: 50px;
+      position: fixed;
+      bottom: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Стили для кружков */
+    .circle {
+      width: 40px;
+      height: 20px;
+      border-radius: 5px; /* Делаем края немного закругленными */
+      background-color: #000;
+      margin: 0 1px;
+      display: inline-block;
+      transition: transform 0.3s, background-color 0.3s, width 0.3s, height 0.3s, box-shadow 0.3s; /* Добавляем анимацию для transform, background-color, width, height и box-shadow */
+      box-shadow: 0 0 0 0 #000; /* Начальное значение тени: без тени */
+    }
+  
+    /* Стили для наведения курсора на кружок */
+    .circle:hover {
+        background-color: #000;
+        transition: 0.9s;
+        cubic-bezier(0, 1.2, 1, 0.2);
+        margin: 20px; /* Добавляем отступы по горизонтали между кружками */
+      transform: scale(1.5); /* Увеличиваем размер при наведении */
+      background-color: transparent; /* Делаем background-color прозрачным */
+      box-shadow: 0 0 0 3px #ff0000; /* Увеличиваем тень при наведении, чтобы создать "кольцо" */
+    }
+
+    .circle:hover::after {
+        content: "Слово"; /* Устанавливаем содержимое псевдоэлемента */
+        position: absolute; /* Позиционируем слово внутри каждой кнопки */
+        top: 50%; /* Размещаем слово по вертикали в середине кнопки */
+        left: 50%; /* Размещаем слово по горизонтали в середине кнопки */
+        transform: translate(-50%, -50%); /* Центрируем слово относительно самого себя */
+        font-size: 14px; /* Устанавливаем размер шрифта для слова */
+        color: #ffffff; /* Устанавливаем цвет текста для слова */
+      }
+  </style>
+
+
+  
+  
+  
+  
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="menu_styles.css">
+  <title>Меню</title>
+</head>
+<body>
+  <div class="circle-menu-toggle">
+    <div class="circle" id="circle1"></div>
+    <div class="circle" id="circle2"></div>
+    <div class="circle" id="circle3"></div>
+    <div class="circle" id="circle1"></div>
+    <div class="circle" id="circle2"></div>
+    <div class="circle" id="circle3"></div>
+  </div>
+</body>
+</html>
+
+
+
