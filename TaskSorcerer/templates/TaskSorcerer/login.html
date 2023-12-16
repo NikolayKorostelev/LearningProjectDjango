@@ -7,21 +7,21 @@
   <style>
     body {
       
-      color:#C0C0C0;
-      background: url("{% static "3.gif" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+      color:#000080;
+      background: url("{% static "auth_fon.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
       background-size: cover;
-      background-color: #000000	;
+      background-color: #B0E0E6		;
     }
     form {
-      color:#C0C0C0;
-      width: 300px;
-      transform: scale(1.5);
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 15px;
+      color:#000080;
+      width: 200px;
+      transform: scale(1.4);
+      margin: 19% auto;
+      padding: 40px;
+      border-radius: 20px;
       /*box-shadow: 5px 5px 5px #C0C0C0;*/
-      /*border: 2px solid #b8b8b8;*/
-      background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
+      /*border: 1px solid #b8b8b8;*/
+      background: url("{% static "auth_form.png" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
       background-size: cover; /* Растягиваем изображение на всю форму */
     }
   </style>
@@ -33,6 +33,7 @@
         bottom: 0; /* Размещаем в самом нижнем положении */
         width: 100%; /* Занимаем всю ширину страницы */
         padding: 10px; /* Отступы */
+        position: fixed;
     }
 </style>
 
@@ -80,7 +81,10 @@
 
 </head>
 <body>
+
   <form action="http://127.0.0.1:8000/TS/main/#">
+    <title>Дневник дружбы! Добро пожаловать!</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="{% static 'logo.svg' %}">
     <div style="text-align: center;">
       <label for="fname" class="tabl">Имя:</label><br> 
       <input type="text" id="fname" name="fname" value=""><br>
@@ -93,7 +97,7 @@
 
   <footer>
     <!-- Нижний статический текст -->
-    <p>Копирайт &copy; 2023. Название вашей компании.</p>
+    <p>Копирайт &copy; 2023. Дневник дружбы!</p>
 </footer>
 
 </body>

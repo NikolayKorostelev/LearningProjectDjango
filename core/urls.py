@@ -19,5 +19,5 @@ from django.urls import path, include
 from TaskSorcerer import urls
 
 urlpatterns = [
-    path('TS/', include(urls)),
+    path('', include(urls)),
 ]
