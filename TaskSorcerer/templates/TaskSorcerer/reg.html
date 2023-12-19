@@ -4,16 +4,24 @@
 <head>
   <link rel="stylesheet" href="styles.css"> <!-- Подключаем внешний файл стилей -->
   <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet"> <!-- Подключаем шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Scribble&display=swap" rel="stylesheet">
   <style>
     body {
       
-      color:#000000;
+      color:#000080;
       background: url("{% static "auth_fon.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
       background-size: cover;
+      opacity: 0.8;
       background-color: #B0E0E6		;
     }
     form {
-      color:#000000;
+      color:#000080;
+      opacity: 3;
+      font-weight: 900; 
+      font-family: Rubik Scribble;
+      text-shadow: blue 1px 1px 0;
       width: 300px;
       transform: scale(1.5);
       margin: 10% auto;
@@ -41,7 +49,8 @@
   /* Стили для кнопки "Отправить" */
   .submit-button {
     background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
-
+    font-weight: 900; 
+    font-family: Rubik Scribble;
     color: white; /* Цвет текста */
     float: left;
     padding: 1px 10px; /* Отступы вокруг текста */
@@ -58,7 +67,8 @@
   /* Стили для кнопки "Сбросить" */
   .reset-button {
     background: url("{% static "1.jpg" %}") no-repeat center center; /* Устанавливаем изображение в качестве фона формы */
-
+    font-weight: 900; 
+    font-family: Rubik Scribble;
     color: white; /* Цвет текста */
     float: right;
     padding: 1px 10px; /* Отступы вокруг текста */

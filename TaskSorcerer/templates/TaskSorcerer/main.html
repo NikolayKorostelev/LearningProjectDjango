@@ -1,177 +1,250 @@
+{% load static %}
 <!DOCTYPE html>
-<style>
-.menu-toggle {
-    display: block;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-    float: right; /* Правый отступ */
-    margin: 10px; /* Пространство между кнопкой и краем окна */
-  }
-  
-  .bar {
-    width: 100%;
-    height: 3px;
-    background-color: #000;
-    margin: 5px auto;
-  }
-  
-  .menu-toggle.active .bar:nth-child(2) {
-    display: none;
-  }
-  
-  .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  
-  .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  
-  .menu {
-    display: none;
-  }
-  
-  .menu.active {
-    display: block;
-  }
-</style>
-
-<style>
-    /* Стили для горизонтальной верхней панели */
-    header {
-        padding: 10px; /* Отступы вокруг*/
-        border-lower: 1px solid #ccc; /* Добавляем горизонтальную полоску над нижним текстом */
-        padding: 10px 0; /* Создаем отступы вокруг нижнего текста */
-    }
-    
-    nav ul {
-        list-style-type: none; /* Убираем маркеры списка */
-        padding: 0;
+<html>
+<head>
+    <title>Заголовок документа</title>
+    <style>
+      body {
+        background: linear-gradient(to right, #E0FFFF,#98FB98) ; /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
+        background-size: cover;
+        background-position: center;
         margin: 0;
-    }
-    
-    nav li {
-        display: inline; /* Отображаем пункты списка горизонтально */
-        margin-right: 10px; /* Отступ между пунктами списка */
-        border-bottom: 1px solid #000
-    }
-    
-    nav a {
-        text-decoration: none; /* Убираем подчеркивание у ссылок */
-        color: #333; /* Цвет текста ссылок */
-    }
-</style>
-
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Меню</title>
-</head>
-<body>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-  <div class="menu">
-    <header>
-        <!-- Верхняя панель с разделами-ссылками -->
-        <nav>
-            <ul>
-                <li><a href="#Главная">Главная</a></li>
-                <li><a href="#О нас">О нас</a></li>
-                <li><a href="#Поддержка">Поддержка</a></li>
-                <li><a href="#Выйти">Выйти</a></li>
-                <!-- Добавьте другие разделы по вашему усмотрению -->
-            </ul>
-        </nav>
-    </header>
-  </div>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.menu-toggle').classList.toggle('active');
-      document.querySelector('.menu').classList.toggle('active');
-    }
-  </script>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<style>
-    /* Стили для контейнера меню */
-    .circle-menu-toggle {
-      width: 100%;
-      height: 50px;
-      position: fixed;
-      bottom: 2px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    /* Стили для кружков */
-    .circle {
-      width: 40px;
-      height: 20px;
-      border-radius: 5px; /* Делаем края немного закругленными */
-      background-color: #000;
-      margin: 0 1px;
-      display: inline-block;
-      transition: transform 0.3s, background-color 0.3s, width 0.3s, height 0.3s, box-shadow 0.3s; /* Добавляем анимацию для transform, background-color, width, height и box-shadow */
-      box-shadow: 0 0 0 0 #000; /* Начальное значение тени: без тени */
-    }
-  
-    /* Стили для наведения курсора на кружок */
-    .circle:hover {
-        background-color: #000;
-        transition: 0.9s;
-        cubic-bezier(0, 1.2, 1, 0.2);
-        margin: 20px; /* Добавляем отступы по горизонтали между кружками */
-      transform: scale(1.5); /* Увеличиваем размер при наведении */
-      background-color: transparent; /* Делаем background-color прозрачным */
-      box-shadow: 0 0 0 3px #ff0000; /* Увеличиваем тень при наведении, чтобы создать "кольцо" */
-    }
-
-    .circle:hover::after {
-        content: "Слово"; /* Устанавливаем содержимое псевдоэлемента */
-        position: absolute; /* Позиционируем слово внутри каждой кнопки */
-        top: 50%; /* Размещаем слово по вертикали в середине кнопки */
-        left: 50%; /* Размещаем слово по горизонтали в середине кнопки */
-        transform: translate(-50%, -50%); /* Центрируем слово относительно самого себя */
-        font-size: 14px; /* Устанавливаем размер шрифта для слова */
-        color: #ffffff; /* Устанавливаем цвет текста для слова */
+        padding: 0;
       }
-  </style>
+            
+        /* Стили для кнопки бургер-меню */
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 26px;
+            right: 26px;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            z-index: 1;
+        }
 
+        /* Стили для трех частей кнопки */
+        .menu-btn > span,
+        .menu-btn > span::before,
+        .menu-btn > span::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #616161;
+            transition-duration: .25s;
+        }
+        .menu-btn > span::before {
+            content: '';
+            top: -8px;
+        }
+        .menu-btn > span::after {
+            content: '';
+            top: 8px;
+        }
 
-  
-  
-  
-  
+        /* Стили для меню */
+        /* Стили для меню */
+        .menubox {
+            display: block; /* отображать как блочный элемент */
+            position: fixed; /* фиксированное позиционирование */
+            visibility: hidden; /* изначально скрыто */
+            top: 0; /* расположение сверху */
+            right: -100%; /* начальное положение за пределами экрана слева */
+            width: 150px; /* ширина меню */
+            height: 100%; /* высота меню (занимает всю высоту окна) */
+            margin: 0; /* отступы */
+            padding: 80px 0; /* внутренние отступы сверху и снизу */
+            list-style: none; /* убрать маркеры у списка */
+            background: linear-gradient(to right, #E0FFFF,#98FB98) ; /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
+            box-shadow: 1px 0px 6px rgba(0, 0, 0, .2); /* тень */
+            transition-duration: .25s; /* длительность анимации при изменении свойств */
+        }
+        
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="menu_styles.css">
-  <title>Меню</title>
+        /* Стили для пунктов меню */
+        .menu-item {
+            display: block;
+            padding: 12px 24px;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition-duration: .25s;
+        }
+        .menu-item:hover {
+            background-color: #CFD8DC;
+        }
+
+        /* Изначально скрытый переключатель меню */
+        #menu-toggle {
+            opacity: 0;
+        }
+
+        /* Анимация кнопки бургер-меню и отображение меню при активации переключателя */
+        #menu-toggle:checked ~ .menu-btn > span {
+            transform: rotate(45deg);
+        }
+        #menu-toggle:checked ~ .menu-btn > span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+        #menu-toggle:checked ~ .menu-btn > span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+        #menu-toggle:checked ~ .menubox {
+            visibility: visible;
+            right: 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="circle-menu-toggle">
-    <div class="circle" id="circle1"></div>
-    <div class="circle" id="circle2"></div>
-    <div class="circle" id="circle3"></div>
-    <div class="circle" id="circle1"></div>
-    <div class="circle" id="circle2"></div>
-    <div class="circle" id="circle3"></div>
-  </div>
+    <!-- Контейнер для бургер-меню -->
+    <div class="burger-menu">
+        <!-- Переключатель меню -->
+        <input id="menu-toggle" type="checkbox" />
+        <!-- Кнопка бургер-меню -->
+        <label class="menu-btn" for="menu-toggle">
+            <span></span>
+        </label>
+   
+        <!-- Меню бургер-меню -->
+        <ul class="menubox">
+            <li><a class="menu-item" href="#">О сайте</a></li>
+            <li><a class="menu-item" href="#">Тех. поддержка</a></li>
+            <li><a class="menu-item" href="#">Правила</a></li>
+            <li><a class="menu-item" href="#">Настройки</a></li>
+            <li><a class="menu-item" href="#"></a></li>
+        </ul>
+    </div>
+
+<style>
+  img {
+    display: flex;
+    justify-content: space-between;
+    transform: scale(0.4); /* увеличивает изображение в 150% от исходного размера */
+    align-items: center;
+    position: absolute;
+    top: -70px;
+    left: -140px;
+
+  
+  
+}
+    </style>
+  </style>
+    <header class="header">
+      <div class="content">
+        <div class="logo">
+          <a href="#" class="logo-link">
+            <img class="w-40 mx-auto d-block" src="{% static 'лого.png' %}" alt="photo" class="my-image" >
+          </a>
+
+      </div>
+    </header>
+
+
+    <style>
+      .word-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin: 0 250px; /* Отступы по горизонтали */
+        content: '|'; /* Вертикальная черта */
+        height: -150px;
+
+      }
+      .word-container span {
+        position: relative;
+        cursor: pointer;
+        height: -150px;
+      }
+
+      .word-container span:hover::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: blue;
+        height: -150px;
+      }
+      .word {
+        display: flex;
+        align-items: center;
+        height: -150px;
+      }
+      .sub-menu {
+        display: none;
+        position: absolute;
+        top: 30px; /* Положение подраздела по вертикали */
+        left: 5px; /* Положение подраздела по горизонтали */
+        height: -150px;
+        padding: 10px;
+        margin: 50px 0; /* Отступы по горизонтали */
+        justify-content: space-between;
+      }
+    </style>
+
+    <div class="word-container">
+      <div class="word">
+        <span>Школьные занятия</span>
+        <div class="sub-menu">
+          <p>Расписание занятий</p>
+          <p>Дневник</p>
+          <p>Домашнее задание</p>
+          <p>Статистика</p>
+          <p>Для родителей</p>
+        </div>
+      </div>
+      <div class="word">
+        <span>Дополнительные занятия</span>
+        <div class="sub-menu">
+          <p>Календарь занятий</p>
+          <p>Соревнования/Выступления</p>
+          <p>Успехи</p>
+          <p>Оплата</p>
+          <p>Для родителей</p>
+        </div>
+      </div>
+      <div class="word">
+        <span>Моя страничка</span>
+        <div class="sub-menu">
+          <p>Друзья</p>
+          <p>Общение</p>
+          <p>Группы</p>
+          <p>Чаты</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const words = document.querySelectorAll('.word');
+      const subMenus = document.querySelectorAll('.sub-menu');
+    
+      words.forEach((word, index) => {
+        const subMenu = subMenus[index];
+        word.addEventListener('click', () => {
+          // Сначала скрываем все подразделы
+          subMenus.forEach(menu => {
+            menu.style.display = 'none';
+          });
+    
+          // Затем показываем подраздел текущего элемента
+          subMenu.style.display = 'block';
+        });
+    
+        // Если это первая кнопка, отображаем ее подраздел по умолчанию
+        if (index === 0) {
+          subMenu.style.display = 'block';
+        }
+      });
+    </script>
+
 </body>
 </html>
-
-
-

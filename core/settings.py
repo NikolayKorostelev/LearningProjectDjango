@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3yic1-fzjp-rvw7pbza(safeuj2+a_^vwo9al%29vod$e=*@0v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.33', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'TaskSorcerer.apps.TSConfig'
+    'TaskSorcerer.apps.TSConfig',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
