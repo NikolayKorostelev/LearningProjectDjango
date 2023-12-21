@@ -1,178 +1,80 @@
 <!DOCTYPE html>
-<style>
-    /* Стили для горизонтальной верхней панели */
-    header {
-        padding: 10px; /* Отступы вокруг*/
-        border-lower: 1px solid #ccc; /* Добавляем горизонтальную полоску над нижним текстом */
-        padding: 10px 0; /* Создаем отступы вокруг нижнего текста */
-    }
-    
-    nav ul {
-        list-style-type: none; /* Убираем маркеры списка */
-        padding: 0;
-        margin: 0;
-    }
-    
-    nav li {
-        display: inline; /* Отображаем пункты списка горизонтально */
-        margin-right: 10px; /* Отступ между пунктами списка */
-        border-bottom: 1px solid #000
-    }
-    
-    nav a {
-        text-decoration: none; /* Убираем подчеркивание у ссылок */
-        color: #333; /* Цвет текста ссылок */
-    }
-</style>
-
-<style>
-    /* Стили для горизонтальной левой колонки */
-    aside {
-        float: left; /* Выравниваем колонку слева */
-        width: 12%; /* Ширина колонки */
-    }
-    
-    aside nav ul {
-        list-style-type: none; /* Убираем маркеры списка */
-        padding: 0;
-        margin: 0;
-    }
-    
-    aside nav li {
-        display: block; /* Отображаем пункты списка как блоки */
-        margin-bottom: 5px; /* Отступ между пунктами списка */
-    }
-    
-    aside nav a {
-        text-decoration: none; /* Убираем подчеркивание у ссылок */
-        color: #333; /* Цвет текста ссылок */
-    }
-</style>
-
-<style>
-    /* Стили для разделения контента */
-    main {
-        display: flex; /* Используем flexbox для размещения элементов в строку */
-    }
-    
-    
-    
-    section {
-        flex: 1; /* Растягиваем центральную секцию на всё доступное пространство */
-        padding: 0 20px; /* Отступы вокруг центральной секции для разделения от левой колонки */
-    }
-</style>
-
-<style>
-    /* Стили для горизонтальной полоски */
-    aside {
-        /* остальные стили */
-        border-right: 1px solid #ccc; /* Добавляем горизонтальную полоску справа от левой колонки */
-        padding-right: 10px; /* Создаем отступ справа от левой колонки */
-    }
-    
-    section {
-        /* остальные стили */
-        padding-left: 10px; /* Создаем отступ слева от контента */
-    }
-</style>
-
-<style>
-    /* Стили для горизонтальной полоски над нижним текстом */
-    footer {
-        border-top: 1px solid #ccc; /* Добавляем горизонтальную полоску над нижним текстом */
-        padding: 10px 0; /* Создаем отступы вокруг нижнего текста */
-    }
-</style>
-
-<style>
-    /* Стили для фона всей страницы */
-    body {
-        background: linear-gradient(to right, #EE82EE, #1E90FF); /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
-        background-size: cover;
-        background-position: center;
-      }
-</style>
-
-<style>
-    /* Стили для размещения статичного текста внизу страницы */
-    footer {
-        position: absolute; /* Устанавливаем абсолютное позиционирование */
-        bottom: 0; /* Размещаем в самом нижнем положении */
-        width: 100%; /* Занимаем всю ширину страницы */
-        padding: 10px; /* Отступы */
-    }
-</style>
-
-<style>
-    /* Стили для создания однородного пространства между шапкой, контентом и подвалом */
-    body {
-        margin: 0; /* Убираем внешние отступы у body */
-        padding: 0; /* Убираем внутренние отступы у body */
-    }
-    
-    header, footer {
-        background: linear-gradient(to right, #1E90FF,#EE82EE) ; /* Горизонтальный градиент от цвета #ff7e5f до #feb47b */
-        background-size: cover;
-        background-position: center;
-    }
-    
-    main {
-        padding: 20px; /* Внутренние отступы для контента */
-    }
-</style>
-
-
-
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название вашего сайта</title>
+<html lang='ru'>
+  <head>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
     <style>
-        /* Стили здесь */
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      
+      #calendar {
+        max-width: 1100px;
+        margin: 40px auto;
+      }
     </style>
-</head>
-<body>
-    <header>
-        <!-- Верхняя панель с разделами-ссылками -->
-        <nav>
-            <ul>
-                <li><a href="#Главная">Главная</a></li>
-                <li><a href="#О нас">О нас</a></li>
-                <li><a href="#Поддержка">Поддержка</a></li>
-                <li><a href="#Выйти">Выйти</a></li>
-                <!-- Добавьте другие разделы по вашему усмотрению -->
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <aside>
-            <!-- Левая колонка с подразделами разделов -->
-            <nav>
-                <ul>
-                    <li><a href="#подраздел1">Подраздел 1</a></li>
-                    <li><a href="#подраздел2">Подраздел 2</a></li>
-                    <li><a href="#подраздел3">Подраздел 3</a></li>
-                    <!-- Добавьте другие подразделы по вашему усмотрению -->
-                </ul>
-            </nav>
-        </aside>
-        <section>
-            <!-- Центральная область с контентом -->
-            <h2 id="раздел1">Раздел 1</h2>
-            <p>Здесь будет контент для раздела 1.</p>
-            <h2 id="раздел2">Раздел 2</h2>
-            <p>Здесь будет контент для раздела 2.</p>
-            <h2 id="раздел3">Раздел 3</h2>
-            <p>Здесь будет контент для раздела 3.</p>
-            <!-- Добавьте другие разделы и их содержимое по вашему усмотрению -->
-        </section>
-    </main>
-    
-    <footer>
-        <!-- Нижний статический текст -->
-        <p>Копирайт &copy; 2023. Название вашей компании.</p>
-    </footer>
+
+  </head>
+  <body>
+    <body>
+        <div id='calendar'></div>
+
+        
+        <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.10/main.min.js'></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+        
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                  // ваш текущий конфигурационный код здесь...
+                    initialView: 'dayGridMonth',
+                    initialDate: '2023-11-07',
+                    headerToolbar: {
+                      left: 'prev,next today',
+                      center: 'title',
+                      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                  // Новый блок для взаимодействия
+                  editable: true,
+                  selectable: true,
+                  dayMaxEvents: true,
+                  selectMirror: true,
+                  select: function(info) {
+                    // Обработка выбора даты для нового события
+                    // info.start содержит начальную дату и время
+                    // info.end содержит конечную дату и время (если выбрано диапазон)
+                    var title = prompt('Введите название события:');
+                    if (title) {
+                      calendar.addEvent({
+                        title: title,
+                        start: info.start,
+                        end: info.end,
+                        allDay: info.allDay
+                      });
+                    }
+                    calendar.unselect();
+                  },
+                  eventReceive: function(info) {
+                    // Обработка добавления нового события
+                    // info.event содержит информацию о событии
+                    // например, info.event.title, info.event.start, info.event.end и т.д.
+                  },
+                  eventDrop: function(info) {
+                    // Обработка перетаскивания события на другую дату
+                  },
+                  eventResize: function(info) {
+                    // Обработка изменения размера события
+                  }
+                });
+        
+                calendar.render();
+            });
+        </script>
+        
+        
 </body>
 </html>

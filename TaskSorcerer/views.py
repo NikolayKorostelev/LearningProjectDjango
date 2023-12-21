@@ -25,6 +25,9 @@ def reg(request):
         cities = cities_data["cities"]
     return render(request, '../templates/TaskSorcerer/reg.html', {'cities': cities})
 
+def main1(request):
+    return render(request, '../templates/TaskSorcerer/main1.html')
+
 
 
 

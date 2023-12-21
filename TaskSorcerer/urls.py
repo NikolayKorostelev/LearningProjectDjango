@@ -7,4 +7,5 @@ urlpatterns = [
     path('main/',vi.main), 
     path('login/',vi.login),
     path('reg/',vi.reg),
+    path('main1/',vi.main1),
 ]
