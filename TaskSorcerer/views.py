@@ -28,6 +28,9 @@ def reg(request):
 def main1(request):
     return render(request, '../templates/TaskSorcerer/main1.html')
 
+def lessons(request):
+    return render(request, '../templates/TaskSorcerer/lessons.html')
+
 
 
 

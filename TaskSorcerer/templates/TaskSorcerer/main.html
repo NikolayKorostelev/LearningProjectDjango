@@ -32,7 +32,7 @@
             display: block;
             position: absolute;
             width: 100%;
-            height: 2px;
+            height: 3px;
             background-color: #616161;
             transition-duration: .25s;
         }
@@ -173,7 +173,25 @@
         height: 2px;
         background-color: blue;
         height: -150px;
+
+        
       }
+
+      /* CSS стили */
+      .clickable-word {
+        cursor: pointer; /* Изменение формы курсора при наведении для подчеркивания кликабельности */
+        transition: color 0.3s; /* Плавное изменение цвета в течение 0.3 секунды */
+      }
+      
+      .clickable-word:hover {
+        text-decoration: underline; /* Подчеркивание слова при наведении */
+        color: blue; /* Изменение цвета при наведении */
+      }
+      
+      .clickable-word:active {
+        color: red; /* Изменение цвета при нажатии (активации) */
+      }
+
       .word {
         display: flex;
         align-items: center;
@@ -191,34 +209,35 @@
       }
     </style>
 
+
     <div class="word-container">
       <div class="word">
-        <span>Школьные занятия</span>
-        <div class="sub-menu">
-          <p>Расписание занятий</p>
-          <p>Дневник</p>
-          <p>Домашнее задание</p>
-          <p>Статистика</p>
-          <p>Для родителей</p>
+          <span>Школьные занятия</span>
+          <div class="sub-menu">
+            <span class="clickable-word"><p>Расписание занятий</p></span>
+            <span class="clickable-word"><p>Дневник</p></span>
+            <span class="clickable-word"><p>Домашнее задание</p></span>
+            <span class="clickable-word"><p>Статистика</p></span>
+            <span class="clickable-word"><p>Для родителей</p></span>
         </div>
       </div>
       <div class="word">
         <span>Дополнительные занятия</span>
         <div class="sub-menu">
-          <p>Календарь занятий</p>
-          <p>Соревнования/Выступления</p>
-          <p>Успехи</p>
-          <p>Оплата</p>
-          <p>Для родителей</p>
+          <span class="clickable-word"><p>Календарь занятий</p></span>
+          <span class="clickable-word"><p>Соревнования/Выступления</p></span>
+          <span class="clickable-word"><p>Успехи</p></span>
+          <span class="clickable-word"><p>Оплата</p></span>
+          <span class="clickable-word"><p>Для родителей</p></span>
         </div>
       </div>
       <div class="word">
         <span>Моя страничка</span>
         <div class="sub-menu">
-          <p>Друзья</p>
-          <p>Общение</p>
-          <p>Группы</p>
-          <p>Чаты</p>
+          <span class="clickable-word"><p>Друзья</p></span>
+          <span class="clickable-word"><p>Общение</p></span>
+          <span class="clickable-word"><p>Группы</p></span>
+          <span class="clickable-word"><p>Чаты</p></span>
         </div>
       </div>
     </div>
